@@ -1,101 +1,131 @@
+"use client";
 import Image from "next/image";
-
+import Head from "next/head";
+import { BsFillMoonStarsFill } from "react-icons/bs";
+import { AiFillTwitterCircle, AiFillLinkedin } from "react-icons/ai";
+import myImage from "../public/dev-ed-wave.png";
+import userName from "../public/UserName.jpg";
+import { useState } from "react";
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+    <div className={darkMode ? "dark" : ""}>
+      <Head>
+        <title>Michael Duran Portfolio</title>
+      </Head>
+      <main className="min-h-screen bg-white dark:bg-gray-800">
+        <section className="h-screen">
+          <nav className="p-10 mb-12 flex justify-between">
+            <h1 className="text-xl font-bold font-mono">Michael Duran</h1>
+            <ul className="flex items-center">
+              <li>
+                <BsFillMoonStarsFill
+                  onClick={() => setDarkMode(!darkMode)}
+                  className="cursor-pointer text-2xl"
+                />
+              </li>
+              <li>
+                <a
+                  className="bg-gradient-to-r from-cyan-500 to-teal-500 px-10 py-2 text-white rounded-md ml-8"
+                  href="#"
+                >
+                  Resume
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="text-justify pl-10">
+            <h2 className="text-5xl py-2 text-cyan-500 ">
+              Hi,im Michael Duran
+            </h2>
+            <h3 className="text-2xl py-2 text-cyan-500 font-bold">
+              An expreienced front end engineer and Cyber Security Data Analyst
+            </h3>
+            <p className="text-md py-5 leading-10 text-cyan-500">
+              Sophomore in FIU with great drive and determination to tackle all
+              bugs
+            </p>
+          </div>
+          <div className="text-5xl flex justify-center gap-36 text-gray-600">
+            <AiFillLinkedin />
+            <AiFillTwitterCircle />
+          </div>
+          <div className="relative bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden mx-auto">
+            <Image src={myImage} layout="fill" objectFit="cover" />
+          </div>
+        </section>
+        <section className="text-left">
+          {/* Remove text-center */}
+          <div>
+            <h3 className="text-3xl p-9 font-bold text-gray-800">
+              Services I can Provide
+            </h3>
+            <p className="text-md pl-12 leading-10 text-gray-700 font-semibold">
+              Ever since I began coding back in 2023, I have worked on two major
+              projects with{" "}
+              <a
+                target="_blank"
+                href="https://www.weareinit.org/"
+                className="text-teal-500 underline"
+              >
+                Init
+              </a>{" "}
+              ,
+              <a
+                target="_blank"
+                href="https://www.ducky.pics/"
+                className="text-teal-500 underline"
+              >
+                Ducky
+              </a>{" "}
+              and{" "}
+              <a
+                target="_blank"
+                href="https://www.devbuds.org/"
+                className="text-teal-500 underline"
+              >
+                DevBuds
+              </a>
+              , which have both gave me real-world experiences on what it is
+              like collaborating with a team.
+            </p>
+            <div>
+              <div className="text-center shadow-2xl p-10 rounded-xl bg-white my-10">
+                <h3 className="text-xl font-bold">
+                  Most of my work has revolved around
+                </h3>
+                <p className="text-lg p-5">Creating React components</p>
+                <p className="text-lg p-5">
+                  Using API calls to a database in live time
+                </p>
+                <p className="text-lg p-5">Creating login forms</p>
+                <p className="text-lg p-5">
+                  Using Figma to collaborate with my peers
+                </p>
+                <p className="text-lg p-5">
+                  Using drag-and-drop features to add files to a site to later
+                  upload to a database
+                </p>
+              </div>
+              <div className="text-center shadow-2xl p-10 rounded-xl bg-white my-10">
+                <h3 className="text-xl font-bold">Education</h3>
+                <p className="text-lg p-5">Creating React components</p>
+                <p className="text-lg p-5">
+                  Using API calls to a database in live time
+                </p>
+                <p className="text-lg p-5">Creating login forms</p>
+                <p className="text-lg p-5">
+                  Using Figma to collaborate with my peers
+                </p>
+                <p className="text-lg p-5">
+                  Using drag-and-drop features to add files to a site to later
+                  upload to a database
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
