@@ -9,6 +9,7 @@ import { useState, useRef, useEffect } from 'react'
 import './globals.css'
 
 import { motion, useAnimation, useScroll, useInView } from 'framer-motion'
+import { yellow } from '@mui/material/colors'
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false)
   const { scrollYProgress: completionProgrss } = useScroll()
@@ -26,11 +27,11 @@ export default function Home() {
       <Head>
         <title>Michael Duran Portfolio</title>
       </Head>
-      <main className='min-h-screen bg-white dark:bg-slate-700'>
+      <main className='min-h-screen bg-white dark:bg-black'>
         <section className='h-screen'>
-          <nav className='p-10 mb-12 flex justify-between '>
+          <nav className=' mb-12 flex justify-between '>
             <motion.h1
-              className='text-xl font-bold  text-cyan-500 font-'
+              className='text-6xl font-bold bg-gradient-to-r  from-teal-500 via-pink-300 to-red-500 bg-clip-text text-transparent  select-none '
               initial={{ fontSize: '1rem' }} // 16px
               animate={{ fontSize: '2.5rem' }} // 40px
               transition={{ duration: 1 }}
@@ -40,28 +41,34 @@ export default function Home() {
 
             <ul className='flex items-center'>
               <li>
-                <BsFillMoonStarsFill onClick={() => setDarkMode(!darkMode)} className='cursor-pointer text-2xl' />
+                <label className='inline-flex items-center cursor-pointer'>
+                  <input onClick={() => setDarkMode(!darkMode)} type='checkbox' value='' className='sr-only peer' />
+                  <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-slate="></div>
+                  <span className='ms-3 text-sm font-medium text-gray-900 dark:text-gray-300'>{!darkMode ? 'Light Mode' : 'Dark Mode'}</span>
+                </label>
               </li>
 
               <li>
-                <motion.button
-                  whileTap={{ scale: 0.9 }}
-                  whileHover={{ scale: 1.1, backgroundColor: 'yellow' }}
-                  className='bg-gradient-to-r from-cyan-500 to-teal-500 px-10 py-2 text-white rounded-md ml-8 font-'
+                <a
                   href='https://docs.google.com/document/d/1_VCLDuw6R4aDT4wqWDZjEzNJ-NWqKmzW/edit?usp=sharing&ouid=114518633992613409676&rtpof=true&sd=true'
                   target='_blank'
                 >
-                  Resume
-                </motion.button>
+                  <motion.button
+                    whileTap={{ scale: 0.8, backgroundColor: 'yellow' }}
+                    whileHover={{ scale: 1.3, backgroundColor: 'yellow' }}
+                    className='bg-gradient-to-r from-teal-500 to-pink-300 px-10 py-2 text-white rounded-md ml-8 font-'
+                    target='_blank'
+                  >
+                    Resume
+                  </motion.button>
+                </a>
               </li>
             </ul>
           </nav>
-          <div className='text-justify pl-10'>
-            <h2 className='text-5xl py-2 text-cyan-500 '>Hi,im Michael Duran</h2>
-            <h3 className='text-2xl py-2 text-cyan-500 font-bold'>An experienced front end engineer and Cyber Security Data Analyst</h3>
-            <p className='text-md py-5 leading-10 font-semibold text-cyan-500'>
-              Sophomore in FIU with great drive and determination to tackle all bugs
-            </p>
+          <div className='text-4xl font-bold bg-gradient-to-r from-teal-500 to-pink-300 bg-clip-text text-transparent'>
+            <h2 className='text-5xl py-2  '>Hi,im Michael Duran</h2>
+            <h3 className='text-2xl py-2 font-bold'>An experienced front end engineer and Cyber Security Data Analyst</h3>
+            <p className='text-md py-5 leading-10 font-semibold'>Sophomore in FIU with great drive and determination to tackle all bugs</p>
           </div>
 
           <div className='relative bg-gradient-to-b from-teal-500 rounded-3xl w-80 h-80 mt-40 overflow-hidden mx-auto'>
@@ -86,37 +93,40 @@ export default function Home() {
               Projects I have worked on
             </motion.h3>
             <section>
-              <div className=' flex justify-evenly'>
-                <div className='text-justify  rounded-xl  shadow-xl p-10 my-10 bg-gradient-to-b from-yellow-500 to-white w-80'>
-                  <h3 className='text-3xl font-extrabold text-center'>Ducky</h3>
-                  <p className='text-xl '></p>
-                </div>
-                <div className='text-justify rounded-xl shadow-xl p-10 my-10  bg-gradient-to-b from-[#5865F2] to-white w-80 '>
-                  <h3 className='text-3xl font-extrabold text-center'>Devbuds</h3>
-                  <p></p>
-                </div>
-                <div className=' shadow-xl p-10 rounded-xl  my-10 w-80 bg-gradient-to-b from-red-500 to-white text-center '>
-                  <h3 className='text-3xl font-extrabold text-center'>Education</h3>
-                  <h3 className='text-xl pt-2 font-bold text-center'>FIU </h3>
-                  <div></div>
-                  <div>
-                    <p className='text-lg p-5 font-semibold'>SWE with GEN AI</p>
-                    <p className='text-md p-7'>CIS4993 U01</p>
-                  </div>
-                  <div>
-                    <p className='text-lg p-5 font-semibold'>Data Structures</p>
-                    <p className='text-md p-7'>COP 3530</p>
-                  </div>
-                  <div>
-                    <p className='text-lg p-5 font-semibold'>JAVA 1 & 2 </p>
-                    <p className='text-md p-7'>COP 2800 & 2805</p>
-                  </div>
-                  <p className='text-lg p-5 font-semibold'>Systems Programming </p>
-                  <p className='text-md p-7'>COP 4338</p>
-                  <p className='text-lg p-5 font-semibold'>Data Mining</p>
-                  <p className='text-md p-7'>CAP 4770</p>
-                </div>
-              </div>
+              <motion.div className=' flex justify-evenly h-max  gap-10'>
+                <a href='https://www.ducky.pics' target='_blank'>
+                  <motion.div
+                    className={`text-center rounded-xl shadow-xl p-10 my-10 ${
+                      darkMode ? 'bg-gradient-to-b from-[#eaf258] to-white' : 'bg-gradient-to-b from-white to-[#eaf258]'
+                    }`}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <h3 className='text-3xl font-extrabold text-center'>Ducky</h3>
+                    <p className='text-xl '>
+                      {' '}
+                      Ducky.pics is a fun, easy-to-use photo-sharing platform designed for those who want to capture their special moments and share
+                      them with friends and family. Whether you're snapping pictures from your phone or camera, Ducky.pics makes it simple to upload,
+                      organize, and showcase your photos in a vibrant, user-friendly environment.
+                    </p>
+                  </motion.div>
+                </a>
+                <a href='https://www.Devbuds.org' target='_blank'>
+                  <motion.div
+                    className={`text-center rounded-xl shadow-xl p-10 my-10 ${
+                      darkMode ? 'bg-gradient-to-b from-[#5865F2] to-gray-500' : 'bg-gradient-to-b from-white to-[#5865F2]'
+                    }`}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <h3 className='text-3xl font-extrabold text-center'>Devbuds</h3>
+                    <p className='text-xl'>
+                      As an LFG service for CompSci majors, our group over at Devbuds was to connect people with each other and collaborate with each
+                      other on projects to later add to their resume and hopefully build up their confidence in coding
+                    </p>
+                  </motion.div>
+                </a>
+              </motion.div>
             </section>
           </div>
         </section>
