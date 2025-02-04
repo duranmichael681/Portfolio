@@ -26,13 +26,18 @@ export default function Home() {
         {/* Navbar */}
         <nav className="fixed top-0 w-full bg-neutral-500 z-50">
           <div className="flex items-center gap-10 p-5">
-            <motion.button
-              whileTap={{ scale: 0.8, backgroundColor: "#FFFF00" }}
-              whileHover={{ scale: 1.1, backgroundColor: "yellow" }}
-              className="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2 text-white rounded-md absolute flex gap-4 top-5 right-5"
+            <a
+              href="https://docs.google.com/document/d/1_VCLDuw6R4aDT4wqWDZjEzNJ-NWqKmzW/edit?usp=sharing&ouid=114518633992613409676&rtpof=true&sd=true"
+              target="_blank"
             >
-              Resume
-            </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.8, backgroundColor: "#FFFF00" }}
+                whileHover={{ scale: 1.1, backgroundColor: "yellow" }}
+                className="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2 text-white rounded-md absolute flex gap-4 top-5 right-5"
+              >
+                Resume
+              </motion.button>
+            </a>
 
             <motion.button
               whileTap={{ scale: 0.8 }}
@@ -127,7 +132,7 @@ export default function Home() {
             </h1>
 
             {/* Right Side: Project Cards */}
-            <div className="flex gap-8 w-2/3">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mx-auto">
               {/* Ducky */}
               <a
                 href="https://www.ducky.pics"
