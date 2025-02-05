@@ -15,13 +15,20 @@
 }
 
 @font-face {
-  font-family: 'Akira Expanded';
-  src: url('/Assets/fonts/AkiraExpandedDemo.otf') format('opentype');
+  font-family: "Akira Expanded";
+  src: url("/Assets/fonts/AkiraExpandedDemo.otf") format("opentype");
 
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: 'Akira Expanded', sans-serif;
+  font-family: "Akira Expanded", sans-serif;
+}
+a {
+  color: inherit !important; /* Inherits text color from parent */
+  text-decoration: none !important; /* Removes underline */
+}
+a:hover {
+  color: inherit !important; /* Keeps hover color the same */
 }
