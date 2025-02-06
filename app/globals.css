@@ -15,15 +15,18 @@
 }
 
 @font-face {
-  font-family: "Akira Expanded";
-  src: url("/Assets/fonts/AkiraExpandedDemo.otf") format("opentype");
-
+  font-family: "Oswald";
+  src: url("/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-body {
-  font-family: "Akira Expanded", sans-serif;
+body,
+h1,
+p,
+span,
+div {
+  font-family: "Oswald", sans-serif !important;
 }
 a {
   color: inherit !important; /* Inherits text color from parent */

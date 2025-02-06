@@ -26,31 +26,18 @@ export default function Home() {
       </Head>
       <main className="bg-white dark:bg-black min-h-screen">
         {/* Navbar */}
-        <nav className="fixed top-0 w-full bg-neutral-500 z-50">
-          <div className="flex items-center gap-10 p-5">
-            <a
-              href="https://docs.google.com/document/d/1AIJVoLaUnRe0Ua5YSJ5D1S8VYOKg3RbW/edit?usp=sharing&ouid=114518633992613409676&rtpof=true&sd=true"
-              target="_blank"
-            >
-              <motion.button
-                whileTap={{ scale: 0.8, backgroundColor: "#FFFF00" }}
-                whileHover={{ scale: 1.1, backgroundColor: "yellow" }}
-                className="bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-2 text-white rounded-md absolute flex gap-4 top-5 right-5"
-              >
-                Resume
-              </motion.button>
-            </a>
-
+        <nav className="fixed top-0 w-full bg-neutral-500 z-50 flex justify-between items-center p-5">
+          {/* Left side buttons */}
+          <div className="flex gap-10">
             <motion.button
               whileTap={{ scale: 0.8 }}
               whileHover={{ scale: 1.1 }}
               className="px-6 py-2 bg-white rounded"
-              onClick={() => {
-                const section = document.getElementById("intro");
-                if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={() =>
+                document
+                  .getElementById("intro")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Introduction
             </motion.button>
@@ -59,29 +46,40 @@ export default function Home() {
               whileTap={{ scale: 0.8 }}
               whileHover={{ scale: 1.1 }}
               className="px-6 py-2 bg-white rounded"
-              onClick={() => {
-                const section = document.getElementById("projects");
-                if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Projects
             </motion.button>
+
             <motion.button
               whileTap={{ scale: 0.8 }}
               whileHover={{ scale: 1.1 }}
               className="px-6 py-2 bg-white rounded"
-              onClick={() => {
-                const section = document.getElementById("skills");
-                if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={() =>
+                document
+                  .getElementById("skills")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Skills
             </motion.button>
           </div>
+          <a
+            href="https://docs.google.com/document/d/1AIJVoLaUnRe0Ua5YSJ5D1S8VYOKg3RbW/edit?usp=sharing&ouid=114518633992613409676&rtpof=true&sd=true"
+            target="_blank"
+          >
+            <motion.button
+              whileTap={{ scale: 0.8, backgroundColor: "#FFFF00" }}
+              whileHover={{ scale: 1.1, backgroundColor: "yellow" }}
+              className="bg-gradient-to-r from-blue-500 to-yellow-500 px-6 py-2 text-white rounded-md"
+            >
+              Resume
+            </motion.button>
+          </a>
         </nav>
 
         {/* Centered Content */}
@@ -106,7 +104,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text"
+                className="bg-gradient-to-r from-blue-500 to-yellow-500 text-transparent bg-clip-text"
               >
                 Software Engineer
               </motion.span>{" "}
@@ -115,7 +113,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
-                className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text"
+                className="bg-gradient-to-r from-yellow-500 to-blue-500 text-transparent bg-clip-text"
               >
                 Cyber Security Data Analyst
               </motion.span>
