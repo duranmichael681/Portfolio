@@ -19,7 +19,13 @@ export default function Home() {
     <div className={darkMode ? 'dark' : ''}>
       <Head>
         <title>Michael Duran Portfolio</title>
+        <meta name='description' content='Software Engineer & Cyber Security Data Analyst' />
+        <meta property='og:title' content='Michael Duran Portfolio' />
+        <meta property='og:description' content='Software Engineer & Cyber Security Data Analyst' />
+        <meta property='og:type' content='website' />
+        <meta property='og:url' content='https://yourwebsite.com' />
       </Head>
+
       <main className='bg-white dark:bg-black min-h-screen'>
         {/* Navbar */}
         <nav className='fixed top-0 left-3 right-3 bg-neutral-500 z-50 flex justify-between items-center rounded-2xl p-5 m-5'>
