@@ -26,9 +26,9 @@ export default function Home() {
         <meta property='og:url' content='https://yourwebsite.com' />
       </Head>
 
-      <main className='bg-white dark:bg-black min-h-screen'>
+      <main className='bg-white dark:bg-black min-h-snen'>
         {/* Navbar */}
-        <nav className='fixed top-0 left-3 right-3 bg-neutral-500 z-50 flex justify-between items-center rounded-2xl p-5 m-5'>
+        <nav className='fixed top-0 left-3 right-3 bg-neutral-500 z-50 flex justify-between items-center rounded-2xl p-3 m-3'>
           {/* Left side buttons */}
           <div className='flex gap-10'>
             <motion.button
@@ -75,9 +75,6 @@ export default function Home() {
         {/* Centered Content */}
         <section id='intro' className='h-screen flex items-center justify-center text-center'>
           <div className='max-w-3xl'>
-            <motion.h1 className=' font-bold text-xl' href='#intro'>
-              Introduction
-            </motion.h1>
             <motion.h1 className='text-6xl font-bold' initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               I'm Michael Duran, a{' '}
             </motion.h1>
@@ -107,7 +104,10 @@ export default function Home() {
             {/* Left Side: Title */}
             <h1 className='text-white text-5xl font-bold p-20 w-1/3'>
               {' '}
-              <a className=' bg-gradient-to-r from-yellow-500 to-blue-500 text-transparent bg-clip-text'>Projects</a> I have worked on
+              <a className=' bg-gradient-to-r from-yellow-500 to-blue-500 text-transparent bg-clip-text'>
+                <span className='bg-gradient-to-r from-blue-500 to-yellow-500 text-transparent bg-clip-text'>Projects</span>
+              </a>{' '}
+              I have worked on
             </h1>
 
             {/* Right Side: Project Cards */}
@@ -116,7 +116,7 @@ export default function Home() {
               <a href='https://www.ducky.pics' target='_blank' className='flex-1 max-w-md'>
                 <motion.div
                   className={`text-center rounded-xl shadow-xl p-10 min-h-[350px] flex flex-col justify-center ${
-                    darkMode ? 'bg-gradient-to-b from-[#eaf258] to-white' : 'bg-gradient-to-b from-white to-[#eaf258]'
+                    darkMode ? 'bg-gradient-to-b from-[#eaf258] to-white' : 'bg-gradient-to-l from-blue-500 to-yellow-500'
                   }`}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
@@ -135,7 +135,7 @@ export default function Home() {
               <a href='https://www.Devbuds.org' target='_blank' className='flex-1 max-w-md'>
                 <motion.div
                   className={`text-center rounded-xl shadow-xl p-10 min-h-[350px] flex flex-col justify-center ${
-                    darkMode ? 'bg-gradient-to-b from-[#eaf258] to-white' : 'bg-gradient-to-b from-white to- bg-purple-800'
+                    darkMode ? 'bg-gradient-to-b from-[#eaf258] to-white' : 'bg-gradient-to-r from-blue-500 to-yellow-500'
                   }`}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
