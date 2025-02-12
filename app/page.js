@@ -9,8 +9,10 @@ import { useState } from 'react'
 import './globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import reactImage from '../public/images.png'
+import ProjectCard from '@/components/projectCards'
 
 import { motion } from 'framer-motion'
+import Navbar from '@/components/navbar'
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false)
@@ -26,51 +28,9 @@ export default function Home() {
         <meta property='og:url' content='https://yourwebsite.com' />
       </Head>
 
-      <main className='bg-white dark:bg-black min-h-snen'>
+      <main className='bg-white dark:bg-black '>
         {/* Navbar */}
-        <nav className='fixed top-0 left-3 right-3 bg-neutral-500 z-50 flex justify-between items-center rounded-2xl p-3 m-3'>
-          {/* Left side buttons */}
-          <div className='flex gap-10'>
-            <motion.button
-              whileTap={{ scale: 0.8 }}
-              whileHover={{ scale: 1.1 }}
-              className='px-6 py-2 bg-white rounded'
-              onClick={() => document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Introduction
-            </motion.button>
-
-            <motion.button
-              whileTap={{ scale: 0.8 }}
-              whileHover={{ scale: 1.1 }}
-              className='px-6 py-2 bg-white rounded'
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Projects
-            </motion.button>
-
-            <motion.button
-              whileTap={{ scale: 0.8 }}
-              whileHover={{ scale: 1.1 }}
-              className='px-6 py-2 bg-white rounded'
-              onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Skills
-            </motion.button>
-          </div>
-          <a
-            href='https://docs.google.com/document/d/1AIJVoLaUnRe0Ua5YSJ5D1S8VYOKg3RbW/edit?usp=sharing&ouid=114518633992613409676&rtpof=true&sd=true'
-            target='_blank'
-          >
-            <motion.button
-              whileTap={{ scale: 0.8, backgroundColor: '#FFFF00' }}
-              whileHover={{ scale: 1.1, backgroundColor: 'yellow' }}
-              className='bg-gradient-to-r from-blue-500 to-yellow-500 px-6 py-2 text-white rounded-md'
-            >
-              Resume
-            </motion.button>
-          </a>
-        </nav>
+        <Navbar />
 
         {/* Centered Content */}
         <section id='intro' className='h-screen flex items-center justify-center text-center'>
@@ -113,42 +73,21 @@ export default function Home() {
             {/* Right Side: Project Cards */}
             <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mx-auto'>
               {/* Ducky */}
-              <a href='https://www.ducky.pics' target='_blank' className='flex-1 max-w-md'>
-                <motion.div
-                  className={`text-center rounded-xl shadow-xl p-10 min-h-[350px] flex flex-col justify-center ${
-                    darkMode ? 'bg-gradient-to-b from-[#eaf258] to-white' : 'bg-gradient-to-l from-blue-500 to-yellow-500'
-                  }`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, y: 100 }} // Start faded out and slightly below
-                  whileInView={{ opacity: 1, y: 0 }} // Animate when in view
-                  transition={{ duration: 0.5 }}
-                >
-                  <h3 className='text-3xl font-extrabold text-center'>Ducky</h3>
-                  <p className='text-xl font-semibold'>
-                    Ducky.pics is a fun, easy-to-use photo-sharing platform designed for capturing and sharing special moments.
-                  </p>
-                </motion.div>
-              </a>
+              <ProjectCard
+                title='Ducky'
+                description='Ducky.pics is a fun, easy-to-use photo-sharing platform designed for capturing and sharing special moments.'
+                link='https://www.ducky.pics'
+                bgClass='bg-gradient-to-l from-blue-500 to-yellow-500'
+                animationDelay={0.2}
+              />
 
-              {/* Devbuds */}
-              <a href='https://www.Devbuds.org' target='_blank' className='flex-1 max-w-md'>
-                <motion.div
-                  className={`text-center rounded-xl shadow-xl p-10 min-h-[350px] flex flex-col justify-center ${
-                    darkMode ? 'bg-gradient-to-b from-[#eaf258] to-white' : 'bg-gradient-to-r from-blue-500 to-yellow-500'
-                  }`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, y: -100 }} // Start faded out and slightly below
-                  whileInView={{ opacity: 1, y: 0 }} // Animate when in view
-                  transition={{ duration: 0.5 }}
-                >
-                  <h3 className='text-3xl font-extrabold text-center'>Devbuds</h3>
-                  <p className='text-xl font-semibold'>
-                    Devbuds helps CompSci majors find collaborators for projects, build resumes, and grow confidence in coding.
-                  </p>
-                </motion.div>
-              </a>
+              <ProjectCard
+                title='Devbuds'
+                description='Devbuds helps CompSci majors find collaborators for projects, build resumes, and grow confidence in coding.'
+                link='https://www.Devbuds.org'
+                bgClass='bg-gradient-to-r from-blue-500 to-yellow-500'
+                animationDelay={0.4}
+              />
             </div>
           </div>
         </section>
