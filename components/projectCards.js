@@ -1,8 +1,21 @@
 // ProjectCard.js
 import React from "react";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function ProjectCard({ title, description, link, bgClass }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Ensure `window` is accessed only on the client
+    const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
+
+    checkScreenSize(); // Run once on mount
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+  if (isMobile) return <div></div>;
   return (
     <a
       href={link}

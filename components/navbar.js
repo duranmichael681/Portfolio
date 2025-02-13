@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Menu } from "@mui/material";
+import { Drawer } from "./ui/drawer";
+import { MenuIcon } from "lucide-react";
+import { DrawerContent, DrawerTrigger } from "./ui/drawer";
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
@@ -15,11 +19,32 @@ export default function Navbar() {
   }, []);
 
   // Don't render the navbar on mobile
-  if (isMobile) return null;
+  if (isMobile)
+    return (
+      <div>
+        <Drawer direction="right">
+          <DrawerTrigger>
+            <MenuIcon />
+          </DrawerTrigger>
+
+          <DrawerContent>
+            <div className="flex-col justify-between space-y-2 flex ">
+              <button className="p-2 bg-slate-400 rounded-xl">Intro</button>
+              <button className="p-2 bg-slate-400 rounded-xl">Projects</button>
+
+              <button className="p-2 bg-slate-400 rounded-xl">Skills</button>
+              <button className="p-2  bg-gradient-to-r from-blue-500 to-yellow-500 rounded-xl">
+                Resume
+              </button>
+            </div>
+          </DrawerContent>
+        </Drawer>
+      </div>
+    );
 
   return (
-    <nav className="bg-neutral-500 z-50 fixed top-0 left-0 right-0 flex justify-between items-center rounded-2xl p-3 m-3 shadow-md">
-      <div className="flex gap-10">
+    <nav className="bg-zinc-700 z-50 fixed top-0 left-0 right-0 flex justify-between  rounded-2xl p-3 m-3 shadow-xl">
+      <div className="flex gap-10 ">
         {["Introduction", "Projects", "Skills"].map((section) => (
           <motion.button
             key={section}
