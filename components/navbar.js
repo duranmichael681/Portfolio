@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Menu } from '@mui/material'
+import { MenuIcon, Home, Folder, User } from 'lucide-react' // Import icons
 import { Drawer } from './ui/drawer'
-import { MenuIcon } from 'lucide-react'
 import { DrawerContent, DrawerTrigger } from './ui/drawer'
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    // Ensure `window` is accessed only on the client
     const checkScreenSize = () => setIsMobile(window.innerWidth < 768)
-
-    checkScreenSize() // Run once on mount
+    checkScreenSize()
     window.addEventListener('resize', checkScreenSize)
 
     return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
 
-  // Don't render the navbar on mobile
   if (isMobile)
     return (
       <div>
@@ -31,7 +27,6 @@ export default function Navbar() {
             <div className='flex-col justify-between space-y-2 flex '>
               <button className='p-2 bg-slate-400 rounded-xl'>intro</button>
               <button className='p-2 bg-slate-400 rounded-xl'>Projects</button>
-
               <button className='p-2 bg-slate-400 rounded-xl'>Skills</button>
               <button className='p-2  bg-gradient-to-r from-blue-500 to-yellow-500 rounded-xl'>Resume</button>
             </div>
@@ -41,34 +36,35 @@ export default function Navbar() {
     )
 
   return (
-    <nav className='bg-zinc-700 z-50 fixed top-0 left-0 right-0 flex justify-between  rounded-2xl p-3 m-3 shadow-xl'>
-      <div className='flex gap-10 '>
-        {['Intro', 'Projects', 'About me'].map((section) => (
-          <motion.button
-            key={section}
-            whileTap={{ scale: 0.8 }}
-            whileHover={{ scale: 1.1 }}
-            className='px-6 py-2 bg-white rounded'
-            onClick={() => document.getElementById(section.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            {section}
-          </motion.button>
-        ))}
-      </div>
-
-      <a
-        href='https://docs.google.com/document/d/1AIJVoLaUnRe0Ua5YSJ5D1S8VYOKg3RbW/edit?usp=sharing&ouid=114518633992613409676&rtpof=true&sd=true'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
+    <nav className='fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col rounded-2xl p-2 shadow-xl justify-center bg-transparent border-3 border-slate-500'>
+      <div className='flex flex-col space-y-4'>
         <motion.button
-          whileTap={{ scale: 0.8, backgroundColor: '#FFFF00' }}
-          whileHover={{ scale: 1.1, backgroundColor: 'yellow' }}
-          className='bg-gradient-to-r from-blue-500 to-yellow-500 px-6 py-2 text-white rounded'
+          whileTap={{ scale: 0.8 }}
+          whileHover={{ scale: 1.1, backgroundColor: '#D3D3D3' }}
+          className='p-2  rounded flex items-center justify-center border-1 border-slate-500'
+          onClick={() => document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' })}
         >
-          Resume
+          <Home size={24} />
         </motion.button>
-      </a>
+
+        <motion.button
+          whileTap={{ scale: 0.8 }}
+          whileHover={{ scale: 1.1, backgroundColor: '#D3D3D3' }}
+          className='p-2 rounded flex items-center justify-center border-1 border-slate-500'
+          onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <Folder size={24} />
+        </motion.button>
+
+        <motion.button
+          whileTap={{ scale: 0.8 }}
+          whileHover={{ scale: 1.1, backgroundColor: '#D3D3D3' }}
+          className='p-2 rounded flex items-center justify-center border-1 border-slate-500'
+          onClick={() => document.getElementById('about me')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <User size={24} />
+        </motion.button>
+      </div>
     </nav>
   )
 }
