@@ -239,7 +239,6 @@ export default function Home() {
           <div className='p-3'>
             <h1>Contact Me</h1>
             <h2>duranmichael681@gmail.com</h2>
-            <ContactForm />
           </div>
         </section>
       </main>
