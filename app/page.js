@@ -21,7 +21,6 @@ import { ArrowRight } from '@mynaui/icons-react'
 import ParticlesComponent from '@/components/particlesBG'
 import animationData from '@/public/assets/SVG.json'
 import SkillCard from '@/components/SkillCards'
-import ContactForm from '@/components/contactForm'
 
 export default function Home() {
   return (
