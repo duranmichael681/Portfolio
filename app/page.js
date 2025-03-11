@@ -5,7 +5,7 @@ import { BsFillMoonStarsFill } from 'react-icons/bs'
 import { AiFillTwitterCircle, AiFillLinkedin, AiFillGithub } from 'react-icons/ai'
 import myImage from '../Renderofme.webp'
 import userName from '../public/UserName.jpg'
-import { useState } from 'react'
+
 import './globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import react from '../public/ReactImage.png'
