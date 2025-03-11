@@ -36,7 +36,7 @@ export default function Navbar() {
     )
 
   return (
-    <nav className='fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col rounded-2xl p-2 shadow-xl justify-center bg-transparent border-3 border-slate-500'>
+    <nav className='fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col rounded-2xl p-2 shadow-xl justify-center bg-transparent '>
       <div className='flex flex-col space-y-4'>
         <motion.button
           whileTap={{ scale: 0.8 }}
