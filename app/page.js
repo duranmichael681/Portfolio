@@ -139,7 +139,7 @@ export default function Home() {
                   title='Ducky'
                   description='Ducky.pics is a fun, easy-to-use photo-sharing platform designed for capturing and sharing special moments.'
                   link='https://www.ducky.pics'
-                  bgClass='bg-slate-500'
+                  bgClass='bg-gray-50'
                   animationDelay={0.2}
                 />
 
@@ -147,7 +147,7 @@ export default function Home() {
                   title='Devbuds'
                   description='Devbuds helps CompSci majors find collaborators for projects, build resumes, and grow confidence in coding.'
                   link='https://www.Devbuds.org'
-                  bgClass='bg-slate-500'
+                  bgClass='bg-gray-50'
                   animationDelay={0.4}
                 />
               </div>

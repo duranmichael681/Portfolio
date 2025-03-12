@@ -19,7 +19,7 @@ export default function ProjectCard({ title, description, link, bgClass }) {
   return (
     <a href={link} target='_blank' rel='noopener noreferrer' className='flex-1 max-w-md'>
       <motion.div
-        className={`text-center rounded-xl shadow-xl p-10 min-h-[350px] flex flex-col justify-center ${bgClass} text-black`}
+        className={`text-center rounded-xl shadow-xl p-10 min-h-[350px] flex flex-col justify-center ${bgClass} bg-opacity-65 text-black`}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0, y: 100 }} // Start faded out and slightly below
