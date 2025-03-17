@@ -11,7 +11,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import react from '../public/ReactImage.png'
 import ProjectCard from '@/components/projectCards'
 import OppositeContentTimeline from '@/components/ui/timeline'
-import Lottie from 'lottie-react'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/navbar'
 import Bubble from '@/components/bubble'
@@ -19,6 +18,11 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@mui/material'
 import { ArrowRight } from '@mynaui/icons-react'
 import ParticlesComponent from '@/components/particlesBG'
+import dynamic from 'next/dynamic'
+
+// Dynamically import Lottie to prevent SSR issues
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
+
 import animationData from '@/public/assets/SVG.json'
 import SkillCard from '@/components/SkillCards'
 
