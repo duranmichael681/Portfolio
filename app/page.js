@@ -30,14 +30,18 @@ import ContactForm from '@/components/contactForm'
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Michael Duran Portfolio</title>
-        <meta name='description' content='Software Engineer & Cyber Security Data Analyst' />
-        <meta property='og:title' content='Michael Duran Portfolio' />
-        <meta property='og:description' content='Software Engineer & Cyber Security Data Analyst' />
-        <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://yourwebsite.com' />
-      </Head>
+    <Head>
+  <title>Michael Duran Portfolio</title>
+  <meta name="description" content="Software Engineer & Cyber Security Data Analyst" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charSet="UTF-8" />
+  <meta property="og:title" content="Michael Duran Portfolio" />
+  <meta property="og:description" content="Portfolio site showcasing software projects and skills." />
+  <meta property="og:url" content="https://duranmichael681.com" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.ico" />
+</Head>
+
 
       {/* Particles Background Component */}
       <div>
