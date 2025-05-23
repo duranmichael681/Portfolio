@@ -37,7 +37,7 @@ export default function Navbar() {
               <button className='p-2 bg-slate-400 rounded-xl'>Intro</button>
               <button className='p-2 bg-slate-400 rounded-xl'>Projects</button>
               <button className='p-2 bg-slate-400 rounded-xl'>Skills</button>
-              <button className='p-2 bg-gradient-to-r from-blue-500 to-yellow-500 rounded-xl'>Resume</button>
+              <button className='p-2 bg-gradient-to-r from-blue-500 to-yellow-500 rounded-xl '>Resume</button>
             </div>
           </DrawerContent>
         </Drawer>

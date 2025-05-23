@@ -25,6 +25,7 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
 import animationData from '@/public/assets/SVG.json'
 import SkillCard from '@/components/SkillCards'
+import ContactForm from '@/components/contactForm'
 
 export default function Home() {
   return (
@@ -87,13 +88,26 @@ export default function Home() {
                 <ArrowRight className='ml-2 transform transition-all duration-500 ease-in-out group-hover:translate-x-[10px]' />
               </a>
 
-              <div className='flex pt-3'>
-                <AiFillGithub className='text-6xl' />
-                <AiFillLinkedin className='text-6xl' />
-                <a href='https://docs.google.com/document/d/1AIJVoLaUnRe0Ua5YSJ5D1S8VYOKg3RbW/edit?usp=sharing&ouid=114518633992613409676&rtpof=true&sd=true'>
-                  <motion.span className='text-teal-500'></motion.span>
-                </a>
-              </div>
+              <div className='flex pt-3 space-x-4'>
+  <a 
+    href="https://github.com/duranmichael681" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+  >
+    <AiFillGithub className="text-6xl hover:text-teal-400 transition" />
+  </a>
+
+  <a 
+    href="https://www.linkedin.com/in/michael-a-duran/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+  >
+    <AiFillLinkedin className="text-6xl hover:text-teal-400 transition" />
+  </a>
+</div>
+
             </div>
             <div className='w-1/3'>
               <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className='text-6xl'>
@@ -159,7 +173,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id='about me' className='h-screen'>
+        <section id='about me' className='h-[75vh]'>
           <div className='flex'>
             <div className='p-3 w-1/2 flex-col'>
               <motion.div
@@ -242,6 +256,7 @@ export default function Home() {
           <div className='p-3'>
             <h1>Contact Me</h1>
             <h2>duranmichael681@gmail.com</h2>
+            <ContactForm/>
           </div>
         </section>
       </main>
