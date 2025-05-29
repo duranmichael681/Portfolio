@@ -1,16 +1,17 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
+import { motion } from "framer-motion";
 
 export default function SkillCard({ title, Description, year }) {
   return (
     <motion.div
-      whileHover={{ scale: 1.1 }}
-      initial={{ opacity: 0, y: 100 }} // Start faded out and slightly below
-      whileInView={{ opacity: 1, y: 0 }} // Animate when in view
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className=' text-black h-[150px] w-[800px] bg-gray-50 rounded-xl font-bold bg-opacity-65 '
+      className="text-black h-fit w-full  bg-gray-50 rounded-xl font-bold bg-opacity-65 p-4"
     >
-      <h1 className='p-2 text-3xl font-extrabold '>{title}</h1> <p className='px-2 font-semibold'>{Description} </p>
+      <h1 className="text-3xl font-extrabold">{title}</h1>
+      <p className="font-semibold">{Description}</p>
     </motion.div>
-  )
+  );
 }

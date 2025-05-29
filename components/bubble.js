@@ -1,15 +1,19 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
+import { motion } from "framer-motion";
 
-export default function Bubble({ text, imgSrc }) {
+export default function Bubble({ text, imgSrc, textSize = "sm" }) {
   return (
     <motion.div
-      whileHover={{ backgroundColor: '#D3D3D3' }}
-      transition={{ duration: 0.3 }}
-      className='inline-flex items-center px-3 py-2 rounded-full border border-white text-white text-sm font-semibold m-1 max-w-[150px] break-words space-x-2'
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
+      className={`inline-flex items-center px-3 py-2 rounded-full border border-white text-white text-${textSize} font-semibold m-1  break-words ${
+        imgSrc ? "space-x-2 justify-start" : "justify-center"
+      }`}
     >
-      {imgSrc && <img src={imgSrc} alt='' className='w-4 h-4' />}
+      {imgSrc && <img src={imgSrc} alt="" className="w-4 h-4" />}
       <span>{text}</span>
     </motion.div>
-  )
+  );
 }
