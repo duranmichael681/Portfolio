@@ -1,19 +1,21 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import DesktopSite from "./desktopSite";
 import MobileSite from "@/app/mobileSite";
+import useIsMobile from "@/components/isMobile";
 
 export default function HomePage() {
-  const [isMobile, setIsMobile] = useState(true);
+  const isMobile = useIsMobile();
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    const checkSize = () => setIsMobile(window.innerWidth < 768);
-
-    checkSize(); // Run on initial load
-    window.addEventListener("resize", checkSize);
-
-    return () => window.removeEventListener("resize", checkSize);
+    setHasMounted(true);
   }, []);
+
+  if (!hasMounted || isMobile === null) {
+    // Prevent any rendering until after mount
+    return null;
+  }
 
   return isMobile ? <MobileSite /> : <DesktopSite />;
 }

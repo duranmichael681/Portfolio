@@ -22,7 +22,6 @@ export default function ProjectCard({ title, description, link, bgClass }) {
         target="_blank"
         rel="noopener noreferrer"
         className={`block rounded-xl text-center ${bgClass}  w-full max-w-md p-4 bg-opacity-65 text-black`}
-        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.97 }}
       >
         <h1 className="text-xl font-bold mb-2">{title}</h1>
