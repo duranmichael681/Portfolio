@@ -151,7 +151,7 @@ export default function desktopSite() {
           </div>
         </section>
 
-        <section id="projects" className="py-10 h-[50vh]">
+        <section id="projects" className="py-10 h-[80vh]">
           <div className="flex p-5 ">
             <div className=" w-1/3">
               <motion.div
@@ -206,7 +206,7 @@ export default function desktopSite() {
           </div>
         </section>
 
-        <section id="about me" className="h-[75vh]">
+        <section id="about me" className="">
           <div className="flex">
             <div className="p-3 w-1/2 flex-col">
               <motion.div
@@ -312,7 +312,10 @@ export default function desktopSite() {
             </div>
 
             {/* Placeholder section */}
-            <div className="w-2/3 p-4 flex-col flex gap-y-8">
+            <div className="p-1 flex-col flex gap-y-8">
+              <span className="text-teal-400 text-5xl text-center font-bold">
+                Education and Experience
+              </span>
               <SkillCard
                 title={"Miami Dade College 2022-2024 - GPA 3.6"}
                 Description={
@@ -328,7 +331,7 @@ export default function desktopSite() {
               <SkillCard
                 title={"FIU Init Build Member"}
                 Description={
-                  "Being a team member of INIT at FIU means collaborating on innovative tech projects, gaining hands-on experience, and growing both professionally and personally. It’s an opportunity to work with like-minded individuals, solve real-world problems, and expand your skills in a dynamic environment."
+                  "Being a team member of INIT at FIU means collaborating on innovative tech projects, gaining hands-on experience, and growing both professionally and personally. Having worked with this group on three separate occasions, I’ve had the opportunity to repeatedly engage with like-minded individuals, tackle real-world challenges, and continuously expand my skills in a dynamic, team-driven environment."
                 }
               />
             </div>

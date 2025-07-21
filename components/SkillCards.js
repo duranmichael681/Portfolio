@@ -12,8 +12,8 @@ export default function SkillCard({ title, Description, year }) {
       transition={{ duration: 0.3 }}
       className={
         isMobile
-          ? "text-black h-fit w-full  bg-gray-50 rounded-xl font-bold bg-opacity-65 p-4"
-          : "text-black h-fit w-[90vh]  bg-gray-50 rounded-xl font-bold bg-opacity-65 p-4"
+          ? "text-black h-fit w-[35vh]  bg-gray-50 rounded-xl font-bold bg-opacity-65 p-4"
+          : "text-black h-fit w-[55vh]  bg-gray-50 rounded-xl font-bold bg-opacity-65 p-4"
       }
     >
       <h1 className="text-3xl font-extrabold">{title}</h1>
