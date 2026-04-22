@@ -1,0 +1,25 @@
+:root {
+  --bg: #050510;
+  --bg-raised: #0b0b18;
+  --ink: #e7e7ea;
+  --ink-dim: #9ca3af;
+  --ink-faint: rgba(255, 255, 255, 0.45);
+  --border: rgba(255, 255, 255, 0.10);
+  --border-hot: rgba(167, 139, 250, 0.45);
+
+  --acc-violet: #a78bfa;
+  --acc-indigo: #6366f1;
+  --acc-cyan: #22d3ee;
+  --acc-pink: #ec4899;
+
+  --grad-text: linear-gradient(90deg, #fff 0%, #c7d2fe 40%, #f0abfc 70%, #fff 100%);
+  --grad-orb: conic-gradient(from 0deg, #6366f1, #ec4899, #22d3ee, #6366f1);
+  --grad-rail: linear-gradient(180deg, #a78bfa, #ec4899);
+  --glow-violet: 0 0 40px rgba(167, 139, 250, 0.35);
+
+  --dur-fast: 120ms;
+  --dur-base: 280ms;
+  --dur-slow: 600ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
