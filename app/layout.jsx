@@ -1,6 +1,8 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { CursorGlow } from "@/components/motion/CursorGlow";
+import { ScrollRail } from "@/components/motion/ScrollRail";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
@@ -18,7 +20,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable} ${satoshi.variable}`}>
-      <body className="min-h-screen bg-bg text-ink antialiased">{children}</body>
+      <body className="min-h-screen bg-bg text-ink antialiased">
+        <CursorGlow />
+        <ScrollRail />
+        {children}
+      </body>
     </html>
   );
 }
