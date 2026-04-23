@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { CursorGlow } from "@/components/motion/CursorGlow";
 import { ScrollRail } from "@/components/motion/ScrollRail";
+import { Navbar } from "@/components/ui/Navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-screen bg-bg text-ink antialiased">
         <CursorGlow />
         <ScrollRail />
+        <Navbar />
         {children}
       </body>
     </html>

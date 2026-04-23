@@ -84,3 +84,8 @@ body { overflow-x: hidden; }
   0%   { transform: translate3d(0, 0, 0) scale(1); }
   100% { transform: translate3d(30px, -20px, 0) scale(1.05); }
 }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
