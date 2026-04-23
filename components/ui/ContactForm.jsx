@@ -49,7 +49,7 @@ export function ContactForm() {
     return (
       <div className="glass rounded-card p-8 text-center">
         <h3 className="font-display text-h2 mb-3">Thanks — message received.</h3>
-        <p className="text-body text-ink-dim">I'll get back to you within a day or two.</p>
+        <p className="text-body text-ink-dim">I&apos;ll get back to you within a day or two.</p>
       </div>
     );
   }
@@ -101,7 +101,7 @@ export function ContactForm() {
           {status === "sending" ? "Sending…" : "Send →"}
         </Button>
         {status === "error" && (
-          <p className="text-small text-violet">Couldn't send. Please try again.</p>
+          <p className="text-small text-violet">Couldn&apos;t send. Please try again.</p>
         )}
       </div>
     </form>

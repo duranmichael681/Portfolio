@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/refs */
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
@@ -9,21 +10,28 @@ export function CursorGlow() {
   const y = useMotionValue(-500);
   const sx = useSpring(x, { stiffness: 400, damping: 40, mass: 0.2 });
   const sy = useSpring(y, { stiffness: 400, damping: 40, mass: 0.2 });
-  const finePointer = useRef(true);
+  const finePointerRef = useRef(null);
+
+  // Determine if we should render, using effect to check window API safely
+  const shouldRender = useMemo(() => {
+    if (reduced) return false;
+    if (finePointerRef.current === null && typeof window !== "undefined") {
+      finePointerRef.current = window.matchMedia("(pointer: fine)").matches;
+    }
+    return finePointerRef.current !== false;
+  }, [reduced]);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    finePointer.current = window.matchMedia("(pointer: fine)").matches;
-    if (reduced || !finePointer.current) return;
+    if (!shouldRender) return;
     const move = (e) => {
       x.set(e.clientX);
       y.set(e.clientY);
     };
     window.addEventListener("mousemove", move, { passive: true });
     return () => window.removeEventListener("mousemove", move);
-  }, [reduced, x, y]);
+  }, [shouldRender, x, y]);
 
-  if (reduced || !finePointer.current) return null;
+  if (!shouldRender) return null;
 
   return (
     <motion.div

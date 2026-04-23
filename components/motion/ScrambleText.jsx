@@ -9,12 +9,12 @@ export function ScrambleText({ text, as: As = "span", className, startStep = 2 }
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
   const reduced = useReducedMotion();
-  const [display, setDisplay] = useState(reduced ? text : "");
+  const [display, setDisplay] = useState("");
   const started = useRef(false);
+  const displayRef = useRef("");
 
   useEffect(() => {
-    if (reduced) { setDisplay(text); return; }
-    if (!inView || started.current) return;
+    if (reduced || !inView || started.current) return;
     started.current = true;
 
     const queue = buildScrambleQueue(text, { startStep });
@@ -28,6 +28,7 @@ export function ScrambleText({ text, as: As = "span", className, startStep = 2 }
         }
       }
       const { text: rendered, done, total } = renderScrambleFrame(queue, frame);
+      displayRef.current = rendered;
       setDisplay(rendered);
       if (done < total) {
         frame += 1;
@@ -40,7 +41,7 @@ export function ScrambleText({ text, as: As = "span", className, startStep = 2 }
 
   return (
     <As ref={ref} aria-label={text} className={cn("inline-block", className)}>
-      <span aria-hidden>{display || " "}</span>
+      <span aria-hidden>{reduced ? text : (display || " ")}</span>
     </As>
   );
 }
