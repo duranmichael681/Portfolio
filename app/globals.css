@@ -79,3 +79,8 @@ body { overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .marquee-track, .marquee-track-reverse { animation: none !important; }
 }
+
+@keyframes hero-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(30px, -20px, 0) scale(1.05); }
+}
