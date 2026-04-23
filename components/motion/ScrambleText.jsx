@@ -40,8 +40,9 @@ export function ScrambleText({ text, as: As = "span", className, startStep = 2 }
   }, [inView, reduced, text, startStep]);
 
   return (
-    <As ref={ref} aria-label={text} className={cn("inline-block", className)}>
-      <span aria-hidden>{reduced ? text : (display || " ")}</span>
+    <As ref={ref} className={cn("inline-block", className)}>
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">{reduced ? text : (display || " ")}</span>
     </As>
   );
 }
