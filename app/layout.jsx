@@ -4,6 +4,7 @@ import "./globals.css";
 import { CursorGlow } from "@/components/motion/CursorGlow";
 import { ScrollRail } from "@/components/motion/ScrollRail";
 import { Navbar } from "@/components/ui/Navbar";
+import { AxeDevWrapper } from "@/components/a11y/AxeDevWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable} ${satoshi.variable}`}>
       <body className="min-h-screen bg-bg text-ink antialiased">
+        <AxeDevWrapper />
         <CursorGlow />
         <ScrollRail />
         <Navbar />
