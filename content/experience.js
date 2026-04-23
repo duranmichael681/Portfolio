@@ -1,6 +1,7 @@
 export const experience = [
   {
     company: "E2G (Eat 2 Grow)",
+    companyUrl: "https://www.e2gfood.com/",
     role: "Software Engineering Intern",
     dates: "Jan 2026 – Present",
     location: "Remote · Social Impact Platform",
@@ -13,6 +14,7 @@ export const experience = [
   },
   {
     company: "CNCT — INIT Build WebDev Intermediate",
+    companyUrl: null,
     role: "Project Lead",
     dates: "Sep 2025 – Present",
     location: "Miami, FL",

@@ -11,7 +11,7 @@ export const projects = [
     ],
     stack: ["Next.js", "TypeScript", "FastAPI", "Supabase"],
     liveUrl: null,
-    codeUrl: null,
+    codeUrl: "https://github.com/AlejandroV01/Ducky",
     visual: { from: "#6366f1", to: "#ec4899" },
   },
   {
@@ -26,7 +26,7 @@ export const projects = [
     ],
     stack: ["React", "Redux", "Socket.IO", "TypeScript"],
     liveUrl: null,
-    codeUrl: null,
+    codeUrl: "https://github.com/AlejandroV01/devbuds",
     visual: { from: "#22d3ee", to: "#6366f1" },
   },
 ];

@@ -30,7 +30,20 @@ export default function Experience() {
               <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
                 <div>
                   <h3 className="font-display text-h2">{e.role}</h3>
-                  <div className="text-body-lg text-ink-dim">{e.company}</div>
+                  <div className="text-body-lg text-ink-dim">
+                    {e.companyUrl ? (
+                      <a
+                        href={e.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-violet transition underline-offset-4 hover:underline"
+                      >
+                        {e.company} ↗
+                      </a>
+                    ) : (
+                      e.company
+                    )}
+                  </div>
                 </div>
                 <div className="font-mono text-micro uppercase text-ink-faint">
                   {e.dates} · {e.location}
