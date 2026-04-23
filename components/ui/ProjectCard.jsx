@@ -42,22 +42,16 @@ export function ProjectCard({ project, index }) {
           ))}
         </div>
         <div className="flex gap-3">
-          <Button
-            as={project.liveUrl ? Link : "button"}
-            href={project.liveUrl || undefined}
-            disabled={!project.liveUrl}
-            variant="primary"
-          >
-            Live →
-          </Button>
-          <Button
-            as={project.codeUrl ? Link : "button"}
-            href={project.codeUrl || undefined}
-            disabled={!project.codeUrl}
-            variant="ghost"
-          >
-            Code →
-          </Button>
+          {project.liveUrl && (
+            <Button as={Link} href={project.liveUrl} variant="primary" target="_blank" rel="noopener noreferrer">
+              Live →
+            </Button>
+          )}
+          {project.codeUrl && (
+            <Button as={Link} href={project.codeUrl} variant={project.liveUrl ? "ghost" : "primary"} target="_blank" rel="noopener noreferrer">
+              Code →
+            </Button>
+          )}
         </div>
       </div>
 

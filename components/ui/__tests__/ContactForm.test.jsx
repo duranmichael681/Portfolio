@@ -2,22 +2,21 @@ import { describe, it, expect } from "vitest";
 import { validateContactForm } from "../ContactForm.jsx";
 
 describe("validateContactForm", () => {
-  it("flags empty fields", () => {
-    const e = validateContactForm({ name: "", email: "", message: "" });
-    expect(e.name).toBeDefined();
-    expect(e.email).toBeDefined();
+  it("flags missing subject and short message", () => {
+    const e = validateContactForm({ name: "", subject: "", message: "" });
+    expect(e.subject).toBeDefined();
     expect(e.message).toBeDefined();
   });
-  it("flags invalid email", () => {
-    const e = validateContactForm({ name: "A", email: "not-an-email", message: "hello there friend" });
-    expect(e.email).toBeDefined();
+  it("allows empty name (optional)", () => {
+    const e = validateContactForm({ name: "", subject: "hi", message: "hello there friend" });
+    expect(e.name).toBeUndefined();
   });
   it("flags short message", () => {
-    const e = validateContactForm({ name: "A", email: "a@b.co", message: "hi" });
+    const e = validateContactForm({ name: "A", subject: "hi", message: "hi" });
     expect(e.message).toBeDefined();
   });
   it("passes valid input", () => {
-    const e = validateContactForm({ name: "A", email: "a@b.co", message: "hello there friend" });
+    const e = validateContactForm({ name: "A", subject: "Hello", message: "hello there friend" });
     expect(e).toEqual({});
   });
 });

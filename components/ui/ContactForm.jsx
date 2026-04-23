@@ -3,53 +3,58 @@ import { useState } from "react";
 import { Button } from "./Button";
 import { cn } from "@/lib/cn";
 
-const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+const EMAIL = "duranmichael681@gmail.com";
 
 function validate(values) {
   const errs = {};
-  if (!values.name.trim()) errs.name = "Name is required.";
-  if (!values.email.trim()) errs.email = "Email is required.";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errs.email = "Enter a valid email.";
+  if (!values.subject.trim()) errs.subject = "Subject is required.";
   if (!values.message.trim() || values.message.trim().length < 10) {
     errs.message = "Message must be at least 10 characters.";
   }
   return errs;
 }
 
+function buildMailto({ name, subject, message }) {
+  const trimmedName = name.trim();
+  const body =
+    message.trim() +
+    (trimmedName ? `\n\n— ${trimmedName}` : "");
+  const params = new URLSearchParams({
+    subject: subject.trim(),
+    body,
+  });
+  return `mailto:${EMAIL}?${params.toString()}`;
+}
+
 export function ContactForm() {
-  const [values, setValues] = useState({ name: "", email: "", message: "" });
+  const [values, setValues] = useState({ name: "", subject: "", message: "" });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [sent, setSent] = useState(false);
 
   const update = (k) => (e) => setValues((v) => ({ ...v, [k]: e.target.value }));
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const errs = validate(values);
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
-
-    setStatus("sending");
-    try {
-      const emailjs = (await import("@emailjs/browser")).default;
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID,
-        { from_name: values.name, reply_to: values.email, message: values.message },
-        { publicKey: PUBLIC_KEY }
-      );
-      setStatus("success");
-      setValues({ name: "", email: "", message: "" });
-    } catch (err) {
-      setStatus("error");
-    }
+    window.location.href = buildMailto(values);
+    setSent(true);
   };
 
-  if (status === "success") {
+  if (sent) {
     return (
       <div className="glass rounded-card p-8 text-center">
-        <h3 className="font-display text-h2 mb-3">Thanks — message received.</h3>
-        <p className="text-body text-ink-dim">I&apos;ll get back to you within a day or two.</p>
+        <h3 className="font-display text-h2 mb-3">Mail client opened.</h3>
+        <p className="text-body text-ink-dim mb-4">
+          Send the message from there and I&apos;ll get back to you within a day or two.
+        </p>
+        <button
+          onClick={() => setSent(false)}
+          className="text-small text-violet hover:underline"
+        >
+          Write another →
+        </button>
       </div>
     );
   }
@@ -64,45 +69,51 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="glass rounded-card p-6 md:p-8 space-y-4">
       <div>
-        <label htmlFor="name" className="block text-micro font-mono uppercase text-ink-faint mb-2">Name</label>
+        <label htmlFor="name" className="block text-micro font-mono uppercase text-ink-faint mb-2">
+          Your name <span className="text-ink-faint normal-case tracking-normal">(optional)</span>
+        </label>
         <input
           id="name" name="name" type="text" autoComplete="name"
           value={values.name} onChange={update("name")}
-          aria-invalid={Boolean(errors.name)}
-          aria-describedby={errors.name ? "name-err" : undefined}
-          className={fieldClass(errors.name)}
+          className={fieldClass(false)}
         />
-        {errors.name && <p id="name-err" className="text-small text-violet mt-1">{errors.name}</p>}
       </div>
       <div>
-        <label htmlFor="email" className="block text-micro font-mono uppercase text-ink-faint mb-2">Email</label>
+        <label htmlFor="subject" className="block text-micro font-mono uppercase text-ink-faint mb-2">
+          Subject
+        </label>
         <input
-          id="email" name="email" type="email" autoComplete="email"
-          value={values.email} onChange={update("email")}
-          aria-invalid={Boolean(errors.email)}
-          aria-describedby={errors.email ? "email-err" : undefined}
-          className={fieldClass(errors.email)}
+          id="subject" name="subject" type="text"
+          placeholder="e.g. Internship at Acme Co."
+          value={values.subject} onChange={update("subject")}
+          aria-invalid={Boolean(errors.subject)}
+          aria-describedby={errors.subject ? "subject-err" : undefined}
+          className={fieldClass(errors.subject)}
         />
-        {errors.email && <p id="email-err" className="text-small text-violet mt-1">{errors.email}</p>}
+        {errors.subject && <p id="subject-err" className="text-small text-violet mt-1">{errors.subject}</p>}
       </div>
       <div>
-        <label htmlFor="message" className="block text-micro font-mono uppercase text-ink-faint mb-2">Message</label>
+        <label htmlFor="message" className="block text-micro font-mono uppercase text-ink-faint mb-2">
+          Message
+        </label>
         <textarea
           id="message" name="message" rows={5}
+          placeholder="Tell me what you&apos;re building…"
           value={values.message} onChange={update("message")}
           aria-invalid={Boolean(errors.message)}
-          aria-describedby={errors.message ? "message-err" : undefined}
+          aria-describedby={errors.message ? "message-err" : "message-hint"}
           className={fieldClass(errors.message)}
         />
-        {errors.message && <p id="message-err" className="text-small text-violet mt-1">{errors.message}</p>}
-      </div>
-      <div className="flex items-center justify-between pt-2">
-        <Button type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending…" : "Send →"}
-        </Button>
-        {status === "error" && (
-          <p className="text-small text-violet">Couldn&apos;t send. Please try again.</p>
+        {errors.message ? (
+          <p id="message-err" className="text-small text-violet mt-1">{errors.message}</p>
+        ) : (
+          <p id="message-hint" className="text-small text-ink-faint mt-2">
+            This opens your mail app with the message pre-filled — nothing gets sent until you hit send there.
+          </p>
         )}
+      </div>
+      <div className="pt-2">
+        <Button type="submit">Open in mail app →</Button>
       </div>
     </form>
   );

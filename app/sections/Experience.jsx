@@ -17,15 +17,18 @@ export default function Experience() {
           </h2>
         </div>
 
-        <ol className="relative pl-8 md:pl-12 border-l-2 border-white/10" style={{
-          borderImage: "linear-gradient(180deg, var(--acc-violet), var(--acc-pink)) 1",
-        }}>
+        <ol className="relative pl-10">
+          <div
+            aria-hidden
+            className="absolute left-0 top-2 bottom-2 w-[2px] rounded-full"
+            style={{ background: "linear-gradient(180deg, var(--acc-violet), var(--acc-pink))" }}
+          />
           {experience.map((e, i) => (
             <li key={e.company} className="relative mb-12 md:mb-16 last:mb-0">
               <span
                 aria-hidden
-                className="absolute -left-[41px] md:-left-[52px] top-2 w-4 h-4 rounded-full bg-violet"
-                style={{ boxShadow: "0 0 20px rgba(167,139,250,0.6)" }}
+                className="absolute top-2 left-0 -translate-x-[calc(50%+1px)] -ml-[39px] w-4 h-4 rounded-full bg-violet ring-4 ring-bg"
+                style={{ boxShadow: "0 0 20px rgba(167,139,250,0.7)" }}
               />
               <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
                 <div>
